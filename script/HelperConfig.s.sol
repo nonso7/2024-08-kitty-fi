@@ -2,7 +2,7 @@
 
 pragma solidity 0.8.26;
 
-import { Script } from "forge-std/Script.sol";
+import {Script} from "forge-std/Script.sol";
 
 contract HelperConfig is Script {
     struct NetworkConfig {
@@ -19,13 +19,11 @@ contract HelperConfig is Script {
     NetworkConfig private networkConfig;
 
     constructor() {
-        if (block.chainid == 11155111) {
-            networkConfig = getSepoliaConfig();
-        }
+        networkConfig = getSepoliaConfig();
     }
 
     function getSepoliaConfig() internal pure returns (NetworkConfig memory) {
-        return NetworkConfig ({
+        return NetworkConfig({
             aavePool: 0x6Ae43d3271ff6888e7Fc43Fd7321a503ff738951,
             euroPriceFeed: 0x1a81afB8146aeFfCFc5E50e8479e826E7D55b910,
             ethUsdPriceFeed: 0x694AA1769357215DE4FAC081bf1f309aDC325306,

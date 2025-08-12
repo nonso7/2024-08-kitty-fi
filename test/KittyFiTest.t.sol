@@ -2,14 +2,14 @@
 
 pragma solidity 0.8.26;
 
-import { Test, console } from "forge-std/Test.sol";
-import { KittyCoin } from "src/KittyCoin.sol";
-import { KittyPool } from "src/KittyPool.sol";
-import { KittyVault, IAavePool } from "src/KittyVault.sol";
-import { DeployKittyFi, HelperConfig } from "script/DeployKittyFi.s.sol";
-import { ERC20Mock } from "@openzeppelin/contracts/mocks/token/ERC20Mock.sol";
-import { MockV3Aggregator } from "@chainlink/contracts/src/v0.8/tests/MockV3Aggregator.sol";
-import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import {Test, console} from "forge-std/Test.sol";
+import {KittyCoin} from "src/KittyCoin.sol";
+import {KittyPool} from "src/KittyPool.sol";
+import {KittyVault, IAavePool} from "src/KittyVault.sol";
+import {DeployKittyFi, HelperConfig} from "script/DeployKittyFi.s.sol";
+import {ERC20Mock} from "@openzeppelin/contracts/mocks/token/ERC20Mock.sol";
+import {MockV3Aggregator} from "@chainlink/contracts/src/v0.8/tests/MockV3Aggregator.sol";
+import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract KittyFiTest is Test {
     KittyCoin kittyCoin;
@@ -95,7 +95,7 @@ contract KittyFiTest is Test {
 
     function test_UserDepositsAndMintsKittyCoin() public {
         uint256 toDeposit = 5 ether;
-        uint256 amountToMint = 20e18;       // 20 KittyCoin
+        uint256 amountToMint = 20e18; // 20 KittyCoin
 
         vm.startPrank(user);
 
@@ -119,8 +119,7 @@ contract KittyFiTest is Test {
 
         vm.stopPrank();
 
-
-        // now user wants to withdraw 
+        // now user wants to withdraw
         uint256 toWithdraw = 3 ether;
 
         vm.startPrank(user);
@@ -139,7 +138,7 @@ contract KittyFiTest is Test {
 
     function test_BurningKittyCoin() public {
         uint256 toDeposit = 5 ether;
-        uint256 amountToMint = 20e18;       // 20 KittyCoin
+        uint256 amountToMint = 20e18; // 20 KittyCoin
 
         vm.startPrank(user);
 
